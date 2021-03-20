@@ -60,7 +60,7 @@ class SimpleTokenizer(object):
 
     def __init__(self, bpe_path = None):
         if bpe_path == None:
-            bpe_path = blobfile.BlobFile('https://openaipublic.blob.core.windows.net/clip/bpe_simple_vocab_16e6.txt', 'r')
+            bpe_path = open('bpe_simple_vocab_16e6.txt', 'r')
         self.byte_encoder = bytes_to_unicode()
         self.byte_decoder = {v:k for k, v in self.byte_encoder.items()}
         merges = bpe_path.read().split('\n')
